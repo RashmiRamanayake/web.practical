@@ -1,0 +1,90 @@
+Tute 11
+
+PHP tutorials 
+01 
+<?php
+
+$x = 6;
+$y = 4;
+
+echo "Sum : " . ($x + $y) . "<br>";
+echo "Difference : " . ($x - $y) . "<br>";
+echo "Product : " . ($x * $y) . "<br>";
+echo "Division : " . ($x / $y) . "<br>";
+
+?>
+
+02 
+
+
+
+
+03 
+
+<?php
+
+$units = 150;
+$rate = 0;
+
+if ($units <= 50) {
+  $rate = 3.50;
+} else if ($units <= 100) {
+  $rate = 4.00;
+} else if ($units <= 150) {
+  $rate = 5.20;
+} else {
+  $rate = 6.50;
+}
+$total = $units * $rate;
+echo "Units: " . $units . "<br>";
+echo "Rate: " . $rate . "<br>";
+echo "Total: " . $total . "<br>";
+?>
+
+
+
+
+04 
+
+<?php
+
+$day = 1;
+
+switch ($day) {
+  case 1:
+    echo "Monday";
+    break;
+  case 2:
+    echo "Tuesday";
+    break;
+  case 3:
+    echo "Wednesday";
+    break;
+  case 4:
+    echo "Thursday";
+    break;
+  case 5:
+    echo "Friday";
+    break;
+  case 6:
+    echo "Saturday";
+    break;
+  case 7:
+    echo "Sunday";
+    break;
+  default:
+    echo "Invalid number";
+}
+
+?>
+
+05 
+<?php
+
+$fruits = array("apple", "banana", "orange", "grape", "mango");
+
+foreach ($fruits as $fruit) {
+  echo $fruit . "<br>";
+}
+
+?>

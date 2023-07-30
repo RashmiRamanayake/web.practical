@@ -1,0 +1,72 @@
+Tute 12 
+01 
+
+
+
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+form {
+  margin: 0 auto;
+  width: 500px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<form action="registration.php" method="post">
+  <h1>Registration Form</h1>
+  <input type="text" name="firstName" placeholder="First Name">
+  <input type="text" name="lastName" placeholder="Last Name">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+PHP
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $firstName = $_POST['firstName'];
+  $lastName = $_POST['lastName'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  echo "Your first name is: " . $firstName . "<br>";
+  echo "Your last name is: " . $lastName . "<br>";
+  echo "Your email is: " . $email . "<br>";
+  echo "Your password is: " . $password . "<br>";
+}
+
+?>
+
+
+
+
+02
+
+

@@ -1,0 +1,173 @@
+Tute 13 
+
+01 
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "university";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Create students table
+$sql = "CREATE TABLE students (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+)";
+if (mysqli_query($conn, $sql)) {
+  echo "Table students created successfully";
+} else {
+  echo "Error creating table: " . mysqli_error($conn);
+}
+// Close connection
+mysqli_close($conn);
+?>
+02 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Registration Form</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+form {
+  margin: 0 auto;
+  width: 500px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<form action="submit.php" method="post">
+  <h1>Student Registration Form</h1>
+  <input type="text" name="id" placeholder="ID">
+  <input type="text" name="name" placeholder="Name">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+03 
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "university";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Get data from HTML form
+$id = $_POST['id'];
+$name = $_POST['name'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+// Insert data into students table
+$sql = "INSERT INTO students (id, name, email, password) VALUES ('$id', '$name', '$email', '$password')";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Data inserted successfully";
+} else {
+  echo "Error inserting data: " . mysqli_error($conn);
+}
+
+// Close connection
+mysqli_close($conn);
+
+?>
+
+04
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "university";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Select all students
+$sql = "SELECT * FROM students";
+$result = mysqli_query($conn, $sql);
+
+// Check if there are any students
+if (mysqli_num_rows($result) > 0) {
+  // There are students
+  echo "<table>";
+  echo "<tr>";
+  echo "<th>ID</th>";
+  echo "<th>Name</th>";
+  echo "<th>Email</th>";
+  echo "<th>Password</th>";
+  echo "</tr>";
+
+  while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" . $row['name'] . "</td>";
+    echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['password'] . "</td>";
+    echo "</tr>";
+  }
+
+  echo "</table>";
+} else {
+  // There are no students
+  echo "No students found";
+}
+
+// Close connection
+mysqli_close($conn);
+
+?>
+

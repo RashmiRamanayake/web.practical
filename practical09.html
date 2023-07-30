@@ -1,0 +1,39 @@
+Tute 09 
+
+05 
+function getDay() {
+  var day = prompt("Enter a number from 1-7:");
+  if (day == 1) {
+    return "Monday";
+  } else if (day == 2) {
+    return "Tuesday";
+  } else if (day == 3) {
+    return "Wednesday";
+  } else if (day == 4) {
+    return "Thursday";
+  } else if (day == 5) {
+    return "Friday";
+  } else if (day == 6) {
+    return "Saturday";
+  } else if (day == 7) {
+    return "Sunday";
+  } else {
+    return "Invalid input";
+  }
+}
+
+
+
+
+
+
+06 
+
+function confirmGoToGoogle() {
+  var result = confirm("Are you sure you want to go to Google?");
+  if (result) {
+    window.location.href = "https://www.google.com";
+  } else {
+    alert("You decided to stay.");
+  }
+}

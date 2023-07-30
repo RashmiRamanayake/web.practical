@@ -1,0 +1,44 @@
+Tute 10 
+
+07 
+function calculate() {
+  var firstNumber = prompt("Enter the first number:");
+  var secondNumber = prompt("Enter the second number:");
+  var operator = prompt("Enter the operator (+, -, *, /):");
+
+  var result;
+  switch (operator) {
+    case "+":
+      result = firstNumber + secondNumber;
+      break;
+    case "-":
+      result = firstNumber - secondNumber;
+      break;
+    case "*":
+      result = firstNumber * secondNumber;
+      break;
+    case "/":
+      result = firstNumber / secondNumber;
+      break;
+    default:
+      result = "Invalid operator";
+  }
+
+  document.getElementById("output").innerHTML = result;
+}
+
+document.getElementById("calculateButton").onclick = calculate;
+
+
+
+
+
+08
+
+function getYearOfBirth() {
+  var nicNumber = prompt("Enter the NIC number:");
+  var yearOfBirth = nicNumber.substring(0, 4);
+  return yearOfBirth;
+}
+
+document.getElementById("output").innerHTML = getYearOfBirth();
